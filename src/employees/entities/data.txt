@@ -1,0 +1,24 @@
+INSERT INTO employees (
+  code, "hrCode", name,email, password, "isActive", "ffType", "depotCode", "departmentId"
+)
+VALUES 
+('PSBL-058', 'M0813', 'Arjune Suter','M0813@company.com', '1234', true, 'MIO', '01', 1),
+('TMBAR01', 'M0747', 'Utpal Kumar Mondal','M0747@company.com', '1234', true, 'TM', '01', 1),
+('RMKHU01', 'TEST001', 'Vacant','TEST001@company.com', '1234', true, 'RM', '01', 1),
+('ZMWES01', 'M0882', 'Mohammad Alam Miah','M0882@company.com', '1234', true, 'ZM', '01', 1);
+
+UPDATE employees
+SET "supervisorCode" = 'TMBAR01'
+WHERE "code" = 'PSBL-058';
+
+UPDATE employees
+SET "supervisorCode" = 'RMKHU01'
+WHERE "code" = 'TMBAR01';
+
+UPDATE employees
+SET "supervisorCode" = 'ZMWES01'
+WHERE "code" = 'RMKHU01';
+
+select * from employees
+
+update employees set password='$2a$12$lgF3zVNS/4zSunaoHI3rPO3iLc13AazZbvQNQDpoyx/UGhvNm52be' 

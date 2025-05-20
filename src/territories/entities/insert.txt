@@ -1,0 +1,25 @@
+INSERT INTO territories (
+  "code", "name", "level", "isActive", "entryBy", "depotCode", "departmentId", "entryDate"
+)
+VALUES 
+('PSBL-058', 'Barishal-2', 5, true, 0, 01, 1, CURRENT_DATE),
+('TMBAR01', 'Barishal',    4, true, 0, 01, 1, CURRENT_DATE),
+('RMKHU01', 'Khulna',      3, true, 0, 01, 1, CURRENT_DATE),
+('ZMWES01', 'West',        2, true, 0, 01, 1, CURRENT_DATE);
+
+select * from territories
+
+UPDATE territories AS child
+SET parent_id = parent.id
+FROM territories AS parent
+WHERE child.code = 'PSBL-058' AND parent.code = 'TMBAR01';
+
+UPDATE territories AS child
+SET parent_id = parent.id
+FROM territories AS parent
+WHERE child.code = 'TMBAR01' AND parent.code = 'RMKHU01';
+
+UPDATE territories AS child
+SET parent_id = parent.id
+FROM territories AS parent
+WHERE child.code = 'RMKHU01' AND parent.code = 'ZMWES01';
